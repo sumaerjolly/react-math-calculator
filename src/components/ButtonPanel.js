@@ -1,8 +1,7 @@
 import React from 'react';
 import Button from './Button';
 
-const ButtonPanel = () => {
-  return (
+const ButtonPanel = () => 
     <div className="buttonPanel">
       <div className="row-1">
         <Button name="AC" />
@@ -33,8 +32,6 @@ const ButtonPanel = () => {
         <Button name="." />
         <Button name="=" />
       </div>
-    </div>
-  );
-};
-
+		</div>
+				
 export default ButtonPanel;
