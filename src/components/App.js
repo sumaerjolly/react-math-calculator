@@ -9,10 +9,11 @@ class App extends Component {
   }
 
   render() {
+    const { result } = this.state
     return (
       <div className="app">
         <h1>React Calculator</h1>
-        <Display result={this.state.result} />
+        <Display result={result} />
         <ButtonPanel />
       </div>
     );
