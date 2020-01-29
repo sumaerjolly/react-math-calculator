@@ -1,11 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Display from './Display';
-import ButtonPanel from "./ButtonPanel";
+import ButtonPanel from './ButtonPanel';
 
-export class App extends Component {
-  state = {
-    result: '0'
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { result: '0' };
   }
+
   render() {
     return (
       <div className="app">
@@ -13,8 +15,8 @@ export class App extends Component {
         <Display result={this.state.result} />
         <ButtonPanel />
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;
