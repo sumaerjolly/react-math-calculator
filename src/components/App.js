@@ -9,7 +9,7 @@ class App extends Component {
   }
 
   render() {
-    const { result } = this.state
+    const { result } = this.state;
     return (
       <div className="app">
         <h1>React Calculator</h1>
