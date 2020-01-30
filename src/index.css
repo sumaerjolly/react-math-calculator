@@ -23,7 +23,7 @@ code {
   text-align: center;
 }
 
-.resultDisplay{
+.resultDisplay {
   background: rgb(134, 134, 148);
   display: flex;
   height: 100px;
@@ -35,11 +35,20 @@ code {
   padding: 20px;
 }
 
-.row{
+.row {
   height: 100px;
   display: flex;
 }
 
-.row button{
+.wide,
+.not-wide {
+  font-size: 1.5em;
+}
+
+.wide {
+  flex-basis: 50%;
+}
+
+.not-wide {
   flex-basis: 25%;
 }
