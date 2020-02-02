@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ name, color, wide }) => (
-  <button className={wide ? 'wide' : 'not-wide'} style={{backgroundColor: color}} type="button">{ name }</button>
+const Button = ({ name, color, wide, handleClick }) => (
+  <button className={wide ? 'wide' : 'not-wide'} style={{backgroundColor: color}} type="button" onClick={() => handleClick(name)}>{ name }</button>
 );
 
 Button.propTypes = {
