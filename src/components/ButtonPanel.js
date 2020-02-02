@@ -7,13 +7,13 @@ const ButtonPanel = () =>
 			<Button name="AC" color="#e0e0e0" />
 			<Button name="+/-" color="#e0e0e0" />
 			<Button name="%" color="#e0e0e0" />
-			<Button name="+" />
+			<Button name='÷' />
 		</div>
 		<div className="row">
 			<Button name="7" color="#e0e0e0" />
 			<Button name="8" color="#e0e0e0" />
 			<Button name="9" color="#e0e0e0" />
-			<Button name="X" />
+			<Button name="x" />
 		</div>
 		<div className="row">
 			<Button name="4" color="#e0e0e0" />
