@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import PropTypes from 'prop-types';
 
 const ButtonPanel = ({ clickHandler }) => {
   const handleClick = buttonName => clickHandler(buttonName);
@@ -44,7 +45,7 @@ const ButtonPanel = ({ clickHandler }) => {
 };
 
 ButtonPanel.propTypes = {
-  clickHandler: PropTypes.func.isRequired
+  clickHandler: PropTypes.func.isRequired,
 };
 
 export default ButtonPanel;

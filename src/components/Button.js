@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Button = ({
   name, color, wide, clickHandler,
-  }) => {
+}) => {
   const handleClick = name => clickHandler(name);
   return (
     <button
