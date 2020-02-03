@@ -16,14 +16,13 @@ const operate = (numberOne, numberTwo, operation) => {
     if (operation === '%') {
       return bigOne.div(100).toString();
     }
-    if (operation === '÷' && (bigTwo) !== 0) {
+    if (operation === '÷' && bigTwo !== 0) {
       return bigOne.div(bigTwo).toString();
     }
   } catch (e) {
     return 'Error';
   }
-  return null;   
+  return null;
 };
 
 export default operate;
-

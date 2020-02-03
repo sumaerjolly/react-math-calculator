@@ -8,25 +8,19 @@ const calculate = (data, buttonName) => {
   let newOperation = operation;
   if (buttonName === '+/-' && next) {
     newNext = operate(next, -1, 'x');
-  } else if (buttonName === '+/-' && total === 'Error') {
-    newTotal = null;
-    newNext = null;
-    newOperation = null;
   } else if (buttonName === '+/-' && total && !next) {
     newTotal = operate(total, -1, 'x');
   } else if (buttonName === '%' && next) {
     newNext = operate(next, 100, '÷');
-  } else if (buttonName === '%' && total === 'Error') {
-    newTotal = null;
-    newNext = null;
-    newOperation = null;
-  } else if (buttonName === '%' && total && !next) {
-    newTotal = operate(total, 100, '÷');
-  } else if (buttonName === '%' && total === 'Error') {
+  } else if (buttonName === '+/-' && total === 'Error') {
     newTotal = null;
     newNext = null;
     newOperation = null;
   } else if (buttonName === 'AC') {
+    newTotal = null;
+    newNext = null;
+    newOperation = null;
+  } else if (buttonName === '%' && total === 'Error') {
     newTotal = null;
     newNext = null;
     newOperation = null;
@@ -48,6 +42,12 @@ const calculate = (data, buttonName) => {
     newNext = null;
     newTotal = total;
     newOperation = operation;
+  } else if (buttonName === '%' && total && !next) {
+    newTotal = operate(total, 100, '÷');
+  } else if (buttonName === '%' && total === 'Error') {
+    newTotal = null;
+    newNext = null;
+    newOperation = null;
   } else if (operations.includes(buttonName)) {
     newNext = null;
     newOperation = buttonName;
