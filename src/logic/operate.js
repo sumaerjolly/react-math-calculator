@@ -20,7 +20,7 @@ const operate = (numberOne, numberTwo, operation) => {
       return bigOne.div(bigTwo).toString();
     }
   } catch (e) {
-    return 'Error';
+    return 'Infinity';
   }
   return null;
 };
