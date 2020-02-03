@@ -10,10 +10,8 @@ class App extends Component {
   }
 
   handleClick = (buttonName) => {
-    console.log("I am in here")
     const { total, next, operation } = this.state;
     const data = { total, next, operation };
-
     const newData = calculate(data, buttonName);
     this.setState({
       total: newData.total,
