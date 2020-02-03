@@ -5,25 +5,25 @@ const operate = (numberOne, numberTwo, operation) => {
     const bigOne = Big(numberOne);
     const bigTwo = Big(numberTwo);
     if (operation === '+') {
-    return bigOne.plus(bigTwo).toString();
+      return bigOne.plus(bigTwo).toString();
     }
     if (operation === '-') {
       return bigOne.minus(bigTwo).toString();
     }
-    if (operation === '÷' && bigTwo !== 0) {
-      return bigOne.div(bigTwo).toString();
-    }
-    if (operation === '×') {
+    if (operation === 'x') {
       return bigOne.times(bigTwo).toString();
     }
     if (operation === '%') {
       return bigOne.div(100).toString();
     }
+    if (operation === '÷' && (bigTwo) !== 0) {
+      return bigOne.div(bigTwo).toString();
+    }
+  } catch (e) {
+    return 'Error';
   }
-  catch (e) {
-    return "Error";
-  }
-  return null;
+  return null;   
 };
 
 export default operate;
+
