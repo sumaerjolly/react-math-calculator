@@ -1,24 +1,29 @@
 import Big from 'big.js';
 
 const operate = (numberOne, numberTwo, operation) => {
-  const bigOne = Big(numberOne);
-  const bigTwo = Big(numberTwo);
-  if (operation === '+') {
-    return bigOne.plus(bigTwo);
+  try {
+    const bigOne = Big(numberOne);
+    const bigTwo = Big(numberTwo);
+    if (operation === '+') {
+    return bigOne.plus(bigTwo).toString();
+    }
+    if (operation === '-') {
+      return bigOne.minus(bigTwo).toString();
+    }
+    if (operation === '÷' && bigTwo !== 0) {
+      return bigOne.div(bigTwo).toString();
+    }
+    if (operation === '×') {
+      return bigOne.times(bigTwo).toString();
+    }
+    if (operation === '%') {
+      return bigOne.div(100).toString();
+    }
   }
-  if (operation === '-') {
-    return bigOne.minus(bigTwo);
+  catch (e) {
+    return "Error";
   }
-  if (operation === '÷') {
-    return bigOne.div(bigTwo);
-  }
-  if (operation === '×') {
-    return bigOne.times(bigTwo);
-  }
-  if (operation === '%') {
-    return bigOne.div(100);
-  }
-  return false;
+  return null;
 };
 
 export default operate;

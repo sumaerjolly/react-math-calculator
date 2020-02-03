@@ -10,20 +10,38 @@ class App extends Component {
   }
 
   handleClick = (buttonName) => {
-    const changeState = calculate(this.state, buttonName);
-    this.setState({...changeState});
+    console.log("I am in here")
+    const { total, next, operation } = this.state;
+    const data = { total, next, operation };
+
+    const newData = calculate(data, buttonName);
+    this.setState({
+      total: newData.total,
+      next: newData.next,
+      operation: newData.operation,
+    });
   }
 
-  render() {
-    const { total,next } = this.state;
+
+    render() {
+    const { total, next } = this.state;
+    const result = next || total;
+    if (result) {
+      return (
+        <div className="app">
+          <Display result={result} />
+          <ButtonPanel clickHandler={this.handleClick} />
+        </div>
+      );
+    }
     return (
       <div className="app">
-        <h1>React Calculator</h1>
-        <Display result={total || next} />
-        <ButtonPanel clickHandler={this.handleClick} />
+        <Display />
+        <ButtonPanel clickHandler={(buttonName) => this.handleClick(buttonName)} />
       </div>
     );
   }
 }
+
 
 export default App;
