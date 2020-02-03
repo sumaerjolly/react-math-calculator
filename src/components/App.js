@@ -20,6 +20,7 @@ class App extends Component {
     if (result) {
       return (
         <div className="app">
+          <h1>React Calculator</h1>
           <Display result={result} />
           <ButtonPanel clickHandler={this.handleClick} />
         </div>
