@@ -9,7 +9,7 @@ class App extends Component {
     this.state = { total: null, next: null, operation: null };
   }
 
-  handleClick = (buttonName) => {
+  handleClick = buttonName => {
     const { total, next, operation } = this.state;
     const data = { total, next, operation };
 
@@ -17,7 +17,7 @@ class App extends Component {
     this.setState({
       total: newData.total,
       next: newData.next,
-      operation: newData.operation
+      operation: newData.operation,
     });
   };
 
