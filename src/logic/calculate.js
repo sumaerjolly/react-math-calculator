@@ -1,49 +1,75 @@
 import operate from './operate';
 
 const calculate = (data, buttonName) => {
-  let { total, next, operation } = data;
-
-  if (buttonName === '+/-') {
-    if (total) {
-      total = -total;
+  const operations = ['+', 'x', '-', '÷', '%', '+/-'];
+  const { total, next, operation } = data;
+  let newTotal = total;
+  let newNext = next;
+  let newOperation = operation;
+  if (buttonName === '+/-' && next) {
+    newNext = operate(next, -1, 'x');
+  } else if (buttonName === '+/-' && total && !next) {
+    newTotal = operate(total, -1, 'x');
+  } else if (buttonName === '%' && next) {
+    newNext = operate(next, 100, '÷');
+  } else if (buttonName === '+/-' && total === 'Error') {
+    newTotal = null;
+    newNext = null;
+    newOperation = null;
+  } else if (buttonName === 'AC') {
+    newTotal = null;
+    newNext = null;
+    newOperation = null;
+  } else if (buttonName === '%' && total === 'Error') {
+    newTotal = null;
+    newNext = null;
+    newOperation = null;
+  } else if (buttonName === '=' && total === 'Error') {
+    newTotal = null;
+    newNext = null;
+    newOperation = null;
+  } else if (buttonName === '=' && operation && total && next) {
+    newNext = null;
+    newTotal = operate(total, next, operation);
+    newOperation = null;
+  } else if (buttonName === '=' && !operation) {
+    newNext = next;
+    newTotal = total;
+    newOperation = null;
+  } else if (buttonName === '=' && total && operation && !next) {
+    newTotal = operate(total, total, operation);
+  } else if (buttonName === '=' && operation && !next) {
+    newNext = null;
+    newTotal = total;
+    newOperation = operation;
+  } else if (buttonName === '%' && total && !next) {
+    newTotal = operate(total, 100, '÷');
+  } else if (buttonName === '%' && total === 'Error') {
+    newTotal = null;
+    newNext = null;
+    newOperation = null;
+  } else if (operations.includes(buttonName)) {
+    newNext = null;
+    newOperation = buttonName;
+    if (total === 'Error') {
+      newTotal = null;
+      newNext = null;
+      newOperation = null;
+    } else if (total && next && operation) {
+      newTotal = operate(total, next, operation);
     } else if (next) {
-      next = -next;
+      newTotal = next;
     }
-    buttonName = null;
+  } else if (total === 'Error' && buttonName) {
+    newTotal = null;
+    newNext = null;
+    newOperation = null;
+  } else if (next) {
+    newNext = next + buttonName;
+  } else {
+    newNext = buttonName;
   }
-
-  if (
-    buttonName === '+' ||
-    buttonName === '-' ||
-    buttonName === '÷' ||
-    buttonName === 'x'
-  ) {
-    if (total && next) {
-      total = operate(total, next, buttonName);
-      next = null;
-      buttonName = null;
-    }
-  }
-
-  if (buttonName === '%') {
-    if (total) {
-      total = operate(total, null, buttonName);
-      next = null;
-      buttonName = null;
-    } else if (next) {
-      total = operate(next, null, buttonName);
-      next = null;
-      buttonName = null;
-    }
-  }
-
-  if (buttonName === 'AC') {
-    total = null;
-    next = null;
-    buttonName = null;
-  }
-
-  return { total, next, operation };
+  return { operation: newOperation, total: newTotal, next: newNext };
 };
 
 export default calculate;
