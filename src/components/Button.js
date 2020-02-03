@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ name, color, wide, clickHandler }) => {
-
+const Button = ({
+   name, color, wide, clickHandler 
+  }) => {
   const handleClick = name => clickHandler(name);
   return (
     <button
@@ -16,18 +17,17 @@ const Button = ({ name, color, wide, clickHandler }) => {
       {name}
     </button>
   );
-
 };
 
 Button.propTypes = {
   name: PropTypes.string.isRequired,
   color: PropTypes.string,
   wide: PropTypes.bool,
-  clickHandler: PropTypes.func.isRequired
+  clickHandler: PropTypes.func.isRequired,
 };
 
 Button.defaultProps = {
-  color: '#f3913e'
+  color: '#f3913e',
 };
 
 export default Button;
