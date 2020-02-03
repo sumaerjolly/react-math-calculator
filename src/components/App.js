@@ -12,16 +12,16 @@ class App extends Component {
   handleClick = (buttonName) => {
     const { total, next, operation } = this.state;
     const data = { total, next, operation };
+
     const newData = calculate(data, buttonName);
     this.setState({
       total: newData.total,
       next: newData.next,
-      operation: newData.operation,
+      operation: newData.operation
     });
-  }
+  };
 
-
-    render() {
+  render() {
     const { total, next } = this.state;
     const result = next || total;
     if (result) {
@@ -35,11 +35,12 @@ class App extends Component {
     return (
       <div className="app">
         <Display />
-        <ButtonPanel clickHandler={(buttonName) => this.handleClick(buttonName)} />
+        <ButtonPanel
+          clickHandler={buttonName => this.handleClick(buttonName)}
+        />
       </div>
     );
   }
 }
-
 
 export default App;
