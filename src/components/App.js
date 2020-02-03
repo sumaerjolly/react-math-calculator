@@ -14,6 +14,7 @@ class App extends Component {
   }
 
   render() {
+    // test
     const { total, next } = this.state;
     const result = next || total;
     if (result) {
