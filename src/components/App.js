@@ -28,6 +28,7 @@ class App extends Component {
     }
     return (
       <div className="app">
+        <h1>React Calculator</h1>
         <Display />
         <ButtonPanel
           clickHandler={buttonName => this.handleClick(buttonName)}
